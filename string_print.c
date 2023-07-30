@@ -10,14 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Libft/libft.h"
 #include "ft_printf.h"
 
-int	ft_print_str(char const *str)
+int	ft_print_string(char const *str)
 {
 	int	str_len;
 
+	if (!str)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
 	str_len = ft_strlen(str);
-	ft_putstr_fd((char *)str, 1);
+	write(1, str, str_len);
 	return (str_len);
 }

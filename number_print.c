@@ -11,27 +11,30 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdint.h>
 
-static int	digit_counter(int nbr)
+int	ft_print_number(int nbr)
 {
-	int	counter;
+	char			*decimal_base;
+	int				i;
 
-	if (nbr == 0)
-		return (1);
-	counter = 0;
-	if (nbr < 0)
-		counter++;
-	while (nbr)
+	decimal_base = "0123456789";
+	i = 0;
+	if (nbr == INT_MIN)
 	{
-		counter++;
-		nbr /= 10;
+		write(1, "-2147483648", 11);
+		return (11);
 	}
-	return (counter);
-}
-
-int	ft_print_nbr(int nbr)
-{
-	ft_putnbr_fd(nbr, 1);
-	return (digit_counter(nbr));
+	else if (nbr < 0)
+	{
+		i += ft_print_character('-');
+		nbr *= -1;
+	}
+	if (nbr > 9)
+	{
+		i += ft_print_number(nbr / 10);
+		i += ft_print_number(nbr % 10);
+	}
+	else if (nbr < 10 && nbr > -1)
+		i += ft_print_character(decimal_base[nbr]);
+	return (i);
 }

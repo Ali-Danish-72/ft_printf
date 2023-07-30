@@ -14,15 +14,21 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>
-# include "Libft/libft.h"
+# include <limits.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdio.h>
+# include <string.h>
+# include <stdint.h>
 
-int	ft_print_address(void *variable);
-int	ft_print_char(int c);
-int	ft_print_hexalower(long int nbr);
-int	ft_print_hexaupper(int nbr);
-int	ft_print_nbr(int nbr);
-int	ft_print_percent(void);
-int	ft_print_str(char const *str);
-int	ft_print_unsigned(unsigned int nbr);
+int		ft_print_address(void *variable);
+int		ft_print_character(int c);
+int		ft_print_hexadecimal(int nbr, char specifier);
+int		ft_print_number(int nbr);
+int		ft_print_percent(void);
+int		ft_printf(const char *str, ...);
+int		ft_print_string(char const *str);
+int		ft_print_unsigned(unsigned int nbr);
+size_t	ft_strlen(char const *str);
 
 #endif

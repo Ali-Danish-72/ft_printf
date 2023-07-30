@@ -1,35 +1,32 @@
 NAME = libftprintf.a
+
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
 
-SRC_FILES = \
-			address_print.c \
-			character_print.c \
-			hexalower_print.c \
-			hexaupper_print.c \
-			number_print.c \
-			percent_print.c \
-			string_print.c \
-			unsigned_print.c
-#			ft_printf.c
+CFLAGS = -Wall -Werror -Wextra -g3
 
-OBJ_FILES = $(SRC_FILES:.c=.o)
+FILES = \
+		address_print.c \
+		character_print.c \
+		ft_printf.c \
+		ft_strlen.c \
+		hexadecimal_print.c \
+		number_print.c \
+		percent_print.c \
+		string_print.c \
+		unsigned_print.c
 
-LIBFT = Libft/libft.a
+OBJ_FILES = $(FILES:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ_FILES)
-	Make -C LIBFT
-	ar rus $(NAME) $(OBJ_FILES) $(LIBFT)
+	ar rcs $(NAME) $(OBJ_FILES)
 
 clean:
-	rm $(OBJ_FILES)
-	Make -C LIBFT clean
+	rm -f $(OBJ_FILES)
 
 fclean: clean
-	rm $(NAME)
-	Make -C LIBFT fclean
+	rm -f $(NAME)
 
 re: fclean all
 

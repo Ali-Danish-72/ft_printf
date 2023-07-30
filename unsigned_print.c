@@ -11,19 +11,18 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <printf.h>
 
 int	ft_print_unsigned(unsigned int nbr)
 {
 	int	digit_count;
 
 	digit_count = 0;
-	if (nbr > -1 && nbr < 10)
-		digit_count += ft_print_char(nbr + 48);
 	if (nbr > 9)
 	{
 		digit_count += ft_print_unsigned((nbr / 10));
 		digit_count += ft_print_unsigned((nbr % 10));
 	}
+	else
+		digit_count += ft_print_character(nbr + 48);
 	return (digit_count);
 }

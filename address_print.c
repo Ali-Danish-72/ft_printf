@@ -11,10 +11,32 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
+
+static int	address(unsigned long int nbr)
+{
+	char	*hexa_lower_base;
+	int		i;
+
+	hexa_lower_base = "0123456789abcdef";
+	i = 0;
+	if (nbr > 15)
+	{
+		i += address(nbr / 16);
+		i += address(nbr % 16);
+	}
+	else
+		i += ft_print_character(hexa_lower_base[nbr]);
+	return (i);
+}
 
 int	ft_print_address(void *variable)
 {
-	write(1, "0x", 2);
-	return (ft_print_hexalower((long int)variable) + 2);
+	unsigned long int	nbr;
+	int					len;
+
+	nbr = (unsigned long int)variable;
+	len = 0;
+	len += ft_print_string("0x");
+	len += address(nbr);
+	return (len);
 }

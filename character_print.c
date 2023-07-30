@@ -10,11 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Libft/libft.h"
 #include "ft_printf.h"
 
-int	ft_print_char(int c)
+int	ft_print_character(int c)
 {
-	ft_putchar_fd(c, 1);
+	write(1, &c, 1);
 	return (1);
 }
