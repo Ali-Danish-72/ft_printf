@@ -15,10 +15,7 @@
 
 # include <stdarg.h>
 # include <limits.h>
-# include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h>
-# include <string.h>
 # include <stdint.h>
 
 int		ft_print_address(void *variable);
