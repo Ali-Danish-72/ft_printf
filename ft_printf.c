@@ -6,7 +6,7 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 14:56:10 by mdanish           #+#    #+#             */
-/*   Updated: 2023/07/25 14:56:12 by mdanish          ###   ########.fr       */
+/*   Updated: 2023/08/05 17:04:33 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,14 @@ static int	format(char specifier, va_list ap)
 		i = ft_print_string(va_arg(ap, const char *));
 	else if (specifier == 'p')
 		i = ft_print_address(va_arg(ap, void *));
-	else if (specifier == 'd')
-		i = ft_print_number(va_arg(ap, int));
-	else if (specifier == 'i')
+	else if (specifier == 'd' || specifier == 'i')
 		i = ft_print_number(va_arg(ap, int));
 	else if (specifier == 'u')
 		i = ft_print_unsigned(va_arg(ap, unsigned int));
 	else if (specifier == 'x' || specifier == 'X')
 		i = ft_print_hexadecimal(va_arg(ap, int), specifier);
 	else if (specifier == '%')
-		i = ft_print_percent();
+		i = ft_print_character('%');
 	return (i);
 }
 

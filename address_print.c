@@ -6,7 +6,7 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 13:37:45 by mdanish           #+#    #+#             */
-/*   Updated: 2023/07/26 13:37:46 by mdanish          ###   ########.fr       */
+/*   Updated: 2023/08/05 17:03:14 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,8 @@ static int	address(unsigned long int nbr)
 	hexa_lower_base = "0123456789abcdef";
 	i = 0;
 	if (nbr > 15)
-	{
 		i += address(nbr / 16);
-		i += address(nbr % 16);
-	}
-	else
-		i += ft_print_character(hexa_lower_base[nbr]);
+	i += ft_print_character(hexa_lower_base[nbr % 16]);
 	return (i);
 }
 

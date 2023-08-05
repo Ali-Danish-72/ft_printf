@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   nbr_print.c                                        :+:      :+:    :+:   */
+/*   number_print.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 18:47:10 by mdanish           #+#    #+#             */
-/*   Updated: 2023/07/25 18:47:11 by mdanish          ###   ########.fr       */
+/*   Updated: 2023/08/05 17:05:44 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 
 int	ft_print_number(int nbr)
 {
-	char			*decimal_base;
 	int				i;
 
-	decimal_base = "0123456789";
 	i = 0;
 	if (nbr == INT_MIN)
 	{
@@ -30,11 +28,7 @@ int	ft_print_number(int nbr)
 		nbr *= -1;
 	}
 	if (nbr > 9)
-	{
 		i += ft_print_number(nbr / 10);
-		i += ft_print_number(nbr % 10);
-	}
-	else if (nbr < 10 && nbr > -1)
-		i += ft_print_character(decimal_base[nbr]);
+	i += ft_print_character((nbr % 10) + 48);
 	return (i);
 }

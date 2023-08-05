@@ -6,7 +6,7 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 20:13:04 by mdanish           #+#    #+#             */
-/*   Updated: 2023/07/25 20:13:05 by mdanish          ###   ########.fr       */
+/*   Updated: 2023/08/05 17:03:38 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,7 @@ int	ft_print_unsigned(unsigned int nbr)
 
 	digit_count = 0;
 	if (nbr > 9)
-	{
 		digit_count += ft_print_unsigned((nbr / 10));
-		digit_count += ft_print_unsigned((nbr % 10));
-	}
-	else
-		digit_count += ft_print_character(nbr + 48);
+	digit_count += ft_print_character((nbr % 10) + 48);
 	return (digit_count);
 }

@@ -11,7 +11,6 @@ FILES = \
 		ft_strlen.c \
 		hexadecimal_print.c \
 		number_print.c \
-		percent_print.c \
 		string_print.c \
 		unsigned_print.c
 
