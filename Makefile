@@ -2,7 +2,7 @@ NAME = libftprintf.a
 
 CC = cc
 
-CFLAGS = -Wall -Werror -Wextra -g3
+CFLAGS = -Wall -Werror -Wextra
 
 FILES = \
 		address_print.c \
