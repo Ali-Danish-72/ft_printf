@@ -6,7 +6,7 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 14:56:10 by mdanish           #+#    #+#             */
-/*   Updated: 2023/08/05 17:04:33 by mdanish          ###   ########.fr       */
+/*   Updated: 2023/08/15 14:46:48 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,24 +57,24 @@ static int	specifier_check(char specifier)
 	return (0);
 }
 
-int	ft_printf(const char *str, ...)
+int	ft_printf(const char *string, ...)
 {
 	int		i;
 	int		str_len;
 	va_list	ap;
 
-	if (!str)
+	if (!string)
 		return (0);
 	i = 0;
 	str_len = 0;
-	va_start(ap, str);
-	while (str[i])
+	va_start(ap, string);
+	while (string[i])
 	{
-		if (str[i] == '%' && specifier_check(str[++i]))
-			str_len += format(str[i], ap);
-		else if (str[i])
-			str_len += ft_print_character(str[i]);
-		if (str[i])
+		if (string[i] == '%' && specifier_check(string[++i]))
+			str_len += format(string[i], ap);
+		else if (string[i])
+			str_len += ft_print_character(string[i]);
+		if (string[i])
 			i++;
 	}
 	va_end(ap);

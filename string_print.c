@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_string.c                                  :+:      :+:    :+:   */
+/*   string_print.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 17:01:02 by mdanish           #+#    #+#             */
-/*   Updated: 2023/07/25 17:01:04 by mdanish          ###   ########.fr       */
+/*   Updated: 2023/08/15 14:49:21 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_string(char const *str)
+int	ft_print_string(char const *string)
 {
-	int	str_len;
+	int	string_length;
 
-	if (!str)
+	if (!string)
 	{
 		write(1, "(null)", 6);
 		return (6);
 	}
-	str_len = ft_strlen(str);
-	write(1, str, str_len);
-	return (str_len);
+	string_length = ft_strlen(string);
+	write(1, string, string_length);
+	return (string_length);
 }

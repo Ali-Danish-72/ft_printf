@@ -6,29 +6,29 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 18:47:10 by mdanish           #+#    #+#             */
-/*   Updated: 2023/08/05 17:05:44 by mdanish          ###   ########.fr       */
+/*   Updated: 2023/08/15 14:48:37 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_number(int nbr)
+int	ft_print_number(int number)
 {
-	int				i;
+	int	i;
 
 	i = 0;
-	if (nbr == INT_MIN)
+	if (number == INT_MIN)
 	{
 		write(1, "-2147483648", 11);
 		return (11);
 	}
-	else if (nbr < 0)
+	else if (number < 0)
 	{
 		i += ft_print_character('-');
-		nbr *= -1;
+		number *= -1;
 	}
-	if (nbr > 9)
-		i += ft_print_number(nbr / 10);
-	i += ft_print_character((nbr % 10) + 48);
+	if (number > 9)
+		i += ft_print_number(number / 10);
+	i += ft_print_character((number % 10) + 48);
 	return (i);
 }

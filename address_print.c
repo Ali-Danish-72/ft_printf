@@ -6,33 +6,33 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 13:37:45 by mdanish           #+#    #+#             */
-/*   Updated: 2023/08/05 17:03:14 by mdanish          ###   ########.fr       */
+/*   Updated: 2023/08/15 14:45:36 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	address(unsigned long int nbr)
+static int	address(unsigned long int number)
 {
 	char	*hexa_lower_base;
 	int		i;
 
 	hexa_lower_base = "0123456789abcdef";
 	i = 0;
-	if (nbr > 15)
-		i += address(nbr / 16);
-	i += ft_print_character(hexa_lower_base[nbr % 16]);
+	if (number > 15)
+		i += address(number / 16);
+	i += ft_print_character(hexa_lower_base[number % 16]);
 	return (i);
 }
 
 int	ft_print_address(void *variable)
 {
-	unsigned long int	nbr;
+	unsigned long int	number;
 	int					len;
 
-	nbr = (unsigned long int)variable;
+	number = (unsigned long int)variable;
 	len = 0;
 	len += ft_print_string("0x");
-	len += address(nbr);
+	len += address(number);
 	return (len);
 }
